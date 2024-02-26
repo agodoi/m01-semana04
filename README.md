@@ -348,3 +348,31 @@ create: function() {
 ```
 
 Observe que em vez de renderizar “Olá Mundo”, agora estamos renderizando a mensagem que foi passada na cena anterior.
+
+## Casos de Testes
+
+Para elaborar um caso de teste para o programa anterior, vamos considerar que o programa envolve a configuração e início de um jogo Phaser simples, conforme mostrado no código HTML fornecido. Aqui está um caso de teste possível:
+
+### Caso de Teste: Configuração e Início do Jogo Phaser
+
+#### Descrição:
+Este caso de teste avalia se o jogo Phaser é configurado corretamente e se é iniciado com sucesso na página web.
+
+#### Pré-condições:
+- O navegador da web está aberto e carregou a página HTML contendo o código do jogo Phaser.
+
+#### Passos:
+1. Verificar se a página HTML foi carregada corretamente no navegador.
+2. Verificar se a biblioteca Phaser foi carregada corretamente a partir do CDN fornecido.
+3. Verificar se os arquivos "cena-01.js" e "cena-02.js" foram carregados corretamente.
+4. Verificar se a `div` com o id "game" está presente na página HTML.
+5. Verificar se o jogo Phaser é iniciado corretamente.
+
+#### Resultados Esperados:
+- Todos os passos do caso de teste são bem-sucedidos.
+- O jogo Phaser é iniciado com sucesso dentro da `div` com o id "game".
+- Não há erros visíveis na execução do jogo na página web.
+
+#### Observações:
+- Este caso de teste é uma verificação básica para garantir que o jogo Phaser seja carregado e iniciado corretamente na página web.
+- Testes adicionais podem ser elaborados para verificar o comportamento do jogo, interações do usuário, funcionalidades específicas das cenas, entre outros aspectos, dependendo dos requisitos do jogo e do projeto.
