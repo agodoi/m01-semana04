@@ -18,3 +18,81 @@ Interações e desenvolvimento do jogo quando há múltiplas cenas e classes, in
 
 # Assuntos relacionados
 Programação orientada a objetos
+
+## 1) Introdução
+
+Phaser é uma plataforma incrível para a criação de jogos. Propociona uma relativa facilidade, além de suporte à física do jogo. É popular o suficiente para que você possa encontrar plug-ins e ferramentas para criar jogos melhores e mais rápido. É baseado em tecnologias HTML5, o que significa que você pode criar jogos que podem ser distribuídos pela Web, mas também empacotados como aplicativos de desktop ou móveis, se desejar.
+
+## 2) Como criar um cenário simples
+
+```
+function preload() {}
+
+function create() {}
+
+new Phaser.Game({
+  width: 450,
+  height: 600,
+  scene: {
+    preload,
+    create
+  }
+})
+```
+
+Um jogo geralmente tem várias cenas. Você pode criar cada cena em seu arquivo separado e passá-las para a propriedade scene, mas desta vez como um array.
+
+Neste caso as cenas são criadas estendendo o objeto Phaser.Scene.
+
+Por exemplo, você pode criar uma cena de boas-vindas num arquivo ```bem-vindo.js```. Exemplo:
+
+```
+export default class Scene1 extends Phaser.Scene {
+  constructor() {
+    super('welcome')
+  }
+
+  create() {
+    this.add.text(20, 20, 'Loading..')
+
+    setTimeout(() => {
+      this.scene.start('game')
+    }, 2000)
+  }
+}
+```
+
+E daí, o jogo ficaria numa outra cena, em um outro arquivo ```java.js```. Exemplo:
+
+```
+export default class Scene2 extends Phaser.Scene {
+  constructor() {
+    super('game')
+  }
+
+  create() {
+    this.add.text(20, 20, 'Playing game!')
+  }
+}
+```
+
+Note that we have the create() method here. We can also have preload() and update() like we did previously.
+
+And we import them and pass them to the scene property into our main game file:
+
+```
+import Phaser from 'phaser'
+import Welcome from './Welcome'
+import Game from './Game'
+
+const config = {
+  width: 800,
+  height: 600,
+  backgroundColor: 0x000000,
+  scene: [Welcome, Game]
+}
+
+const game = new Phaser.Game(config)
+```
+
+What happens now is that we get the first scene listed (Welcome) starting out, and we call this.scene.start('game') to move to the Game scene after 2 seconds.
