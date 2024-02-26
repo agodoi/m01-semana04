@@ -378,3 +378,41 @@ Este caso de teste avalia se o jogo Phaser é configurado corretamente e se é i
 - Testes adicionais podem ser elaborados para verificar o comportamento do jogo, interações do usuário, funcionalidades específicas das cenas, entre outros aspectos, dependendo dos requisitos do jogo e do projeto.
 
 Para adicionar mais detalhes ao seu GDD, se inspire nessa tabela da [web.dev](https://web.dev/articles/ta-test-cases?hl=pt-br).
+
+## 5) Mapa de Ladrilhos
+
+Ao criar um mapa de ladrilhos (tiles) para um jogo, é importante considerar vários conceitos e técnicas para garantir um design eficiente e visualmente agradável. Aqui estão alguns conceitos importantes a serem considerados durante a edição do mapa de ladrilhos:
+
+1. **Grade de Ladrilhos (Tile Grid)**:
+   - Utilizar uma grade de ladrilhos (grid) para organizar o mapa. Cada célula da grade corresponde a um ladrilho (tile) no mapa do jogo.
+
+2. **Ladrilhos (Tiles)**:
+   - Escolher uma variedade de ladrilhos que representem diferentes tipos de terreno, objetos, elementos decorativos, etc., dependendo do estilo e tema do jogo.
+
+3. **Paleta de Cores (Color Palette)**:
+   - Selecionar uma paleta de cores consistente e harmoniosa para os ladrilhos, garantindo que eles se encaixem bem visualmente e criem uma atmosfera coesa no jogo.
+
+4. **Consistência Visual**:
+   - Manter uma consistência visual em todo o mapa, garantindo que os ladrilhos se encaixem sem problemas e que o estilo artístico seja uniforme.
+
+5. **Reutilização de Ladrilhos**:
+   - Reutilizar ladrilhos sempre que possível para otimizar o uso de recursos e reduzir a carga no desempenho do jogo.
+
+6. **Camadas (Layers)**:
+   - Utilizar camadas para organizar elementos diferentes do mapa, como terrenos, objetos, fundos, etc., e para criar efeitos de profundidade e paralaxe.
+
+7. **Colisão**:
+   - Definir áreas de colisão nos ladrilhos, se necessário, para que os personagens e objetos do jogo possam interagir corretamente com o ambiente.
+
+8. **Detalhamento Gradual**:
+   - Adicionar detalhes progressivamente ao mapa, começando com uma estrutura básica e adicionando detalhes finos e decorações conforme necessário.
+
+9. **Testes e Ajustes**:
+   - Testar o mapa em diferentes resoluções de tela e dispositivos para garantir que os ladrilhos se ajustem corretamente e que não haja problemas visuais ou de jogabilidade.
+
+10. **Feedback dos Jogadores**:
+    - Solicitar feedback dos jogadores sobre o design do mapa, especialmente em relação à jogabilidade, clareza visual e estética geral.
+
+Ao considerar esses conceitos durante a edição do mapa de ladrilhos, é possível criar um ambiente de jogo visualmente atraente, funcional e envolvente para os jogadores.
+
+Um exemplo pode ser baixado [AQUI](https://drive.google.com/file/d/1cbRfl5-EBkD18Sf_7WHttUZ965aCNqJc/view?usp=drive_link)
