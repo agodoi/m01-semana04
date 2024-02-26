@@ -151,5 +151,70 @@ const game = new Phaser.Game(config)
 
 O que acontece agora é que temos a primeira cena listada (BemVindo) iniciando e chamamos ```this.scene.start('game')``` para passar para a cena do jogo após 2 segundos.
 
-**Portanto, agora você já sabe como fazer múltiplas cenas**.
+**Portanto, agora você já sabe como fazer múltiplas classes (cenas)**.
+
+
+Ao criar um jogo, provavelmente você terá mais de uma tela. Por exemplo, você pode ter uma tela de menu inicial, uma tela principal de jogo e uma tela de fim de jogo. Essas telas podem ser pensadas como cenas de um jogo, da mesma forma que você pode pensar nas cenas de um filme.
+
+Cada cena que você tem no jogo representa uma lousa em branco ou um novo ponto de partida para aquela subseção específica de conteúdo.
+
+Neste tutorial, veremos como criar múltiplas cenas, alternar entre elas e passar dados entre elas, usando Phaser 3.x e JavaScript simples.
+
+## 3) Outro exemplo Múltiplas Cenas usando HTML
+
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="//cdn.jsdelivr.net/npm/phaser@3.24.1/dist/phaser.min.js"></script>
+        <script src="scene-one.js"></script>
+        <script src="scene-two.js"></script>
+    </head>
+    <body>
+        <div id="game"></div>
+        <script>
+
+            const phaserConfig = {
+                type: Phaser.AUTO,
+                parent: "game",
+                width: 1280,
+                height: 720,
+                backgroundColor: "#5DACD8",
+                scene: [ ]
+            };
+
+            const game = new Phaser.Game(phaserConfig);
+
+        </script>
+    </body>
+</html>
+```
+
+**Explicando...**
+
+Este é um exemplo básico de como configurar um jogo usando a biblioteca Phaser dentro de uma página HTML. Detalhes:
+
+1. `<!DOCTYPE html>`: declaração do tipo de documento para especificar que o documento é um HTML5.
+
+2. `<html>...</html>`: elemento raiz que envolve todo o conteúdo HTML.
+
+3. `<head>...</head>`: contém metadados e referências a recursos utilizados pela página.
+
+4. `<script src="//cdn.jsdelivr.net/npm/phaser@3.24.1/dist/phaser.min.js"></script>`: importa a biblioteca Phaser. Neste caso, está sendo utilizado o CDN (Content Delivery Network) fornecido pelo jsDelivr para incluir a versão 3.24.1 da biblioteca Phaser.
+
+5. `<script src="cena-01.js"></script>`: importa um arquivo JavaScript chamado "cena-01.js". Presumivelmente, este arquivo contém a definição de uma cena para o jogo.
+
+6. `<script src="cena-02.js"></script>`: importa outro arquivo JavaScript chamado "cena-02.js". Da mesma forma que o anterior, este arquivo provavelmente contém a definição de outra cena para o jogo.
+
+7. `<body>...</body>`: contém todo o conteúdo visível da página HTML.
+
+8. `<div id="game"></div>`: define uma `div` com o id "game". É dentro desta `div` que o jogo Phaser será renderizado. Uma "div" é um elemento HTML que serve como um contêiner genérico para outros elementos HTML. Ela é frequentemente usada para agrupar e organizar conteúdo dentro de uma página da web. A palavra "div" é uma abreviação de "division" (divisão), e é usada para dividir o conteúdo da página em seções distintas.
+
+9. `<script>...</script>`: contém o código JavaScript que configura e inicia o jogo Phaser.
+
+    - `const phaserConfig = { ... };`: define um objeto de configuração para o jogo Phaser. As propriedades desse objeto incluem o tipo de renderização (`type`), o elemento pai onde o jogo será renderizado (`parent`), as dimensões do jogo (`width` e `height`), a cor de fundo do jogo (`backgroundColor`) e a lista de cenas (`scene`). Por enquanto, a lista de cenas está vazia.
+
+    - `const game = new Phaser.Game(phaserConfig);`: cria uma nova instância do jogo Phaser com as configurações especificadas no objeto `phaserConfig`. Esta instância é armazenada na variável `game`.
+
+De forma geral, este código HTML configura uma página web para carregar e executar um jogo criado com Phaser, especificando o tamanho do jogo, a cor de fundo e os scripts que contêm as definições das cenas do jogo.
 
