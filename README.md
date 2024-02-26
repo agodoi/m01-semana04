@@ -60,16 +60,30 @@ Um jogo geralmente tem várias cenas. Você pode criar cada cena em seu arquivo 
 
 Neste caso as cenas são criadas estendendo o objeto Phaser.Scene.
 
-Por exemplo, você pode criar uma cena de boas-vindas num arquivo ```bem-vindo.js```. Exemplo:
+Por exemplo, você pode criar uma cena de boas-vindas num arquivo ```BemVindo.js```. Exemplo:
 
 ```
+
+function preload() {}
+
+function create() {}
+
+new Phaser.Game({
+  width: 450,
+  height: 600,
+  scene: {
+    preload,
+    create
+  }
+})
+
 export default class Scene1 extends Phaser.Scene {
   constructor() {
-    super('welcome')
+    super('BemVindo')
   }
 
   create() {
-    this.add.text(20, 20, 'Loading..')
+    this.add.text(20, 20, 'Carregando...')
 
     setTimeout(() => {
       this.scene.start('game')
@@ -84,25 +98,25 @@ Temos uma classe chamada `Scene1`, que estende a classe `Phaser.Scene`. Esta cla
 
 1. `export default class Scene1 extends Phaser.Scene {`: aqui, estamos exportando (tornando disponível para outros arquivos) uma classe chamada `Scene1` como o padrão da exportação. Essa classe estende `Phaser.Scene`, o que significa que `Scene1` é uma subclasse de `Phaser.Scene`. Isso permite que `Scene1` herde todas as funcionalidades e métodos de `Phaser.Scene`.
 
-2. `constructor() { super('welcome') }`: O construtor da classe `Scene1` é definido aqui. Quando uma nova instância de `Scene1` é criada, o construtor da classe `Phaser.Scene` é chamado primeiro com o parâmetro `'welcome'`. Isso define o nome da cena como `'welcome'`. O construtor também chama o construtor da classe pai usando `super()`, garantindo que todas as inicializações necessárias da classe pai sejam feitas.
+2. `constructor() { super('BemVindo') }`: O construtor da classe `Scene1` é definido aqui. Quando uma nova instância de `Scene1` é criada, o construtor da classe `Phaser.Scene` é chamado primeiro com o parâmetro `'BemVindo'`. Isso define o nome da cena como `'BemVindo'`. O construtor também chama o construtor da classe pai usando `super()`, garantindo que todas as inicializações necessárias da classe pai sejam feitas.
 
 3. `create() { ... }`: é um método específico do Phaser chamado `create()`. Ele é chamado automaticamente quando a cena é iniciada e é onde você configura os elementos da cena, como sprites, textos, etc.
 
-4. `this.add.text(20, 20, 'Loading..')`: dentro do método `create()`, um texto é adicionado à cena na posição (20, 20) com o conteúdo `'Loading..'`. Isso cria um texto na tela que diz "Loading.." quando a cena é iniciada.
+4. `this.add.text(20, 20, 'Loading..')`: dentro do método `create()`, um texto é adicionado à cena na posição (20, 20) com o conteúdo `'Carregando...'`. Isso cria um texto na tela que diz "Carregando..." quando a cena é iniciada.
 
-5. `setTimeout(() => { this.scene.start('game') }, 2000)`: dentro do método `create()`, um temporizador é configurado usando `setTimeout`. Isso faz com que uma função seja executada após um atraso de 2000 milissegundos (ou 2 segundos). Dentro dessa função, `this.scene.start('game')` é chamado. Isso inicia a cena chamada `'game'`. Portanto, após 2 segundos da inicialização da cena `'welcome'`, a cena `'game'` será iniciada.
+5. `setTimeout(() => { this.scene.start('game') }, 2000)`: dentro do método `create()`, um temporizador é configurado usando `setTimeout`. Isso faz com que uma função seja executada após um atraso de 2000 milissegundos (o correto é usar milisegundos). Dentro dessa função, `this.scene.start('game')` é chamado. Isso inicia a cena chamada `'game'`. Portanto, após 2 segundos da inicialização da cena `'BemVindo'`, a cena `'game'` será iniciada.
 
-Em resumo, essa classe `Scene1` define uma cena no jogo Phaser chamada `'welcome'`, onde um texto `'Loading..'` é exibido e, após 2 segundos, a cena `'game'` é iniciada.
+Em resumo, essa classe `Scene1` define uma cena no jogo Phaser chamada `'BemVindo'`, onde um texto `'Carregando...'` é exibido e, após 2 segundos, a cena `'game'` é iniciada.
 
 ### O que é um método?
 
 No código fornecido, um método é uma **função** que está definida **dentro de uma classe** e pode ser **chamada nos objetos dessa classe**. No contexto do código apresentado, temos o **método `create()` dentro da classe `Scene1`**. Este método é chamado automaticamente quando a cena é iniciada no jogo Phaser.
 
-Dentro do método `create()`, estão sendo realizadas várias operações, como adicionar um texto à cena e configurar um temporizador para iniciar outra cena após um certo período de tempo. Essas operações específicas definem o comportamento inicial da cena `'welcome'` no jogo.
+Dentro do método `create()`, estão sendo realizadas várias operações, como adicionar um texto à cena e configurar um temporizador para iniciar outra cena após um certo período de tempo. Essas operações específicas definem o comportamento inicial da cena `'BemVindo'` no jogo.
 
 Em JavaScript, métodos são essenciais para encapsular a lógica relacionada a um objeto específico e promover a reutilização do código. Eles permitem que você defina o comportamento dos objetos em termos de como eles respondem a determinadas mensagens ou invocações. No contexto de uma classe em JavaScript, os métodos são apenas funções que estão definidas como propriedades da classe.
 
-Continuando com o código anterior, além do jogo ter uma tela de saudação, o jogo ficaria numa outra cena, em um outro arquivo ```java.js```. Exemplo:
+Continuando com o código anterior, além do jogo ter uma tela de saudação, o jogo ficaria numa outra cena, em um outro arquivo ```jogo.js```. Exemplo:
 
 ```
 export default class Scene2 extends Phaser.Scene {
@@ -116,23 +130,26 @@ export default class Scene2 extends Phaser.Scene {
 }
 ```
 
-Note that we have the create() method here. We can also have preload() and update() like we did previously.
+Observe que temos o método ``create()`` aqui. E também podemos ter ```preload()``` e ```update()``` como vimos anteriormente.
 
-And we import them and pass them to the scene property into our main game file:
+Mas agora, os importamos e os passamos para a propriedade ```scene``` em nosso arquivo principal do jogo:
 
 ```
 import Phaser from 'phaser'
-import Welcome from './Welcome'
+import BemVindo from './BemVindo'
 import Game from './Game'
 
 const config = {
   width: 800,
   height: 600,
   backgroundColor: 0x000000,
-  scene: [Welcome, Game]
+  scene: [BemVindo, Game]
 }
 
 const game = new Phaser.Game(config)
 ```
 
-O que acontece agora é que temos a primeira cena listada (Bem-vindo) começando e chamamos this.scene.start('game') para passar para a cena do jogo após 2 segundos.
+O que acontece agora é que temos a primeira cena listada (BemVindo) iniciando e chamamos ```this.scene.start('game')``` para passar para a cena do jogo após 2 segundos.
+
+**Portanto, agora você já sabe como fazer múltiplas cenas**.
+
