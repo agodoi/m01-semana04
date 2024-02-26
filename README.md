@@ -54,7 +54,7 @@ Explicação das linhas:
    - `scene`: define as cenas do jogo. Uma cena no Phaser é onde a lógica do jogo acontece. Neste caso, a cena é definida como um objeto que tem duas propriedades: `preload` e `create`, que são referências para as funções `preload` e `create` definidas anteriormente. Isso significa que essas duas funções serão chamadas automaticamente durante a execução do jogo, conforme especificado pela estrutura do Phaser.
 
 Resumindo, esse código define um jogo Phaser com uma largura de 450 pixels e altura de 600 pixels, mas sem carregar nenhum recurso ou criar nenhum elemento do jogo inicialmente. As funções `preload` e `create` estão vazias, então nada é carregado ou criado durante a inicialização do jogo.
-```
+
 
 Um jogo geralmente tem várias cenas. Você pode criar cada cena em seu arquivo separado e passá-las para a propriedade scene, mas desta vez como um array.
 
@@ -78,7 +78,31 @@ export default class Scene1 extends Phaser.Scene {
 }
 ```
 
-E daí, o jogo ficaria numa outra cena, em um outro arquivo ```java.js```. Exemplo:
+Explicando as linhas anteriores:
+
+Temos uma classe chamada `Scene1`, que estende a classe `Phaser.Scene`. Esta classe representa uma cena no jogo Phaser. Então note:
+
+1. `export default class Scene1 extends Phaser.Scene {`: aqui, estamos exportando (tornando disponível para outros arquivos) uma classe chamada `Scene1` como o padrão da exportação. Essa classe estende `Phaser.Scene`, o que significa que `Scene1` é uma subclasse de `Phaser.Scene`. Isso permite que `Scene1` herde todas as funcionalidades e métodos de `Phaser.Scene`.
+
+2. `constructor() { super('welcome') }`: O construtor da classe `Scene1` é definido aqui. Quando uma nova instância de `Scene1` é criada, o construtor da classe `Phaser.Scene` é chamado primeiro com o parâmetro `'welcome'`. Isso define o nome da cena como `'welcome'`. O construtor também chama o construtor da classe pai usando `super()`, garantindo que todas as inicializações necessárias da classe pai sejam feitas.
+
+3. `create() { ... }`: é um método específico do Phaser chamado `create()`. Ele é chamado automaticamente quando a cena é iniciada e é onde você configura os elementos da cena, como sprites, textos, etc.
+
+4. `this.add.text(20, 20, 'Loading..')`: dentro do método `create()`, um texto é adicionado à cena na posição (20, 20) com o conteúdo `'Loading..'`. Isso cria um texto na tela que diz "Loading.." quando a cena é iniciada.
+
+5. `setTimeout(() => { this.scene.start('game') }, 2000)`: dentro do método `create()`, um temporizador é configurado usando `setTimeout`. Isso faz com que uma função seja executada após um atraso de 2000 milissegundos (ou 2 segundos). Dentro dessa função, `this.scene.start('game')` é chamado. Isso inicia a cena chamada `'game'`. Portanto, após 2 segundos da inicialização da cena `'welcome'`, a cena `'game'` será iniciada.
+
+Em resumo, essa classe `Scene1` define uma cena no jogo Phaser chamada `'welcome'`, onde um texto `'Loading..'` é exibido e, após 2 segundos, a cena `'game'` é iniciada.
+
+### O que é um método?
+
+No código fornecido, um método é uma **função** que está definida **dentro de uma classe** e pode ser **chamada nos objetos dessa classe**. No contexto do código apresentado, temos o **método `create()` dentro da classe `Scene1`**. Este método é chamado automaticamente quando a cena é iniciada no jogo Phaser.
+
+Dentro do método `create()`, estão sendo realizadas várias operações, como adicionar um texto à cena e configurar um temporizador para iniciar outra cena após um certo período de tempo. Essas operações específicas definem o comportamento inicial da cena `'welcome'` no jogo.
+
+Em JavaScript, métodos são essenciais para encapsular a lógica relacionada a um objeto específico e promover a reutilização do código. Eles permitem que você defina o comportamento dos objetos em termos de como eles respondem a determinadas mensagens ou invocações. No contexto de uma classe em JavaScript, os métodos são apenas funções que estão definidas como propriedades da classe.
+
+Continuando com o código anterior, além do jogo ter uma tela de saudação, o jogo ficaria numa outra cena, em um outro arquivo ```java.js```. Exemplo:
 
 ```
 export default class Scene2 extends Phaser.Scene {
