@@ -349,7 +349,7 @@ create: function() {
 
 Observe que em vez de renderizar “Olá Mundo”, agora estamos renderizando a mensagem que foi passada na cena anterior.
 
-## Casos de Testes
+## 4) Casos de Testes
 
 Para elaborar um caso de teste para o programa anterior, vamos considerar que o programa envolve a configuração e início de um jogo Phaser simples, conforme mostrado no código HTML fornecido. Aqui está um caso de teste possível:
 
@@ -376,3 +376,5 @@ Este caso de teste avalia se o jogo Phaser é configurado corretamente e se é i
 #### Observações:
 - Este caso de teste é uma verificação básica para garantir que o jogo Phaser seja carregado e iniciado corretamente na página web.
 - Testes adicionais podem ser elaborados para verificar o comportamento do jogo, interações do usuário, funcionalidades específicas das cenas, entre outros aspectos, dependendo dos requisitos do jogo e do projeto.
+
+Para adicionar mais detalhes ao seu GDD, se inspire nessa tabela da [web.dev](https://web.dev/articles/ta-test-cases?hl=pt-br).
