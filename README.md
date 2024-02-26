@@ -95,4 +95,4 @@ const config = {
 const game = new Phaser.Game(config)
 ```
 
-What happens now is that we get the first scene listed (Welcome) starting out, and we call this.scene.start('game') to move to the Game scene after 2 seconds.
+O que acontece agora é que temos a primeira cena listada (Bem-vindo) começando e chamamos this.scene.start('game') para passar para a cena do jogo após 2 segundos.
