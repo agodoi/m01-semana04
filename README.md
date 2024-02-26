@@ -218,3 +218,133 @@ Este é um exemplo básico de como configurar um jogo usando a biblioteca Phaser
 
 De forma geral, este código HTML configura uma página web para carregar e executar um jogo criado com Phaser, especificando o tamanho do jogo, a cor de fundo e os scripts que contêm as definições das cenas do jogo.
 
+### 3.1) Criando os Arquivos JS
+
+No arquivo **cena-01.js**, vai esse código:
+
+ ```
+var Cena-01 = new Phaser.Class({
+    Extends: Phaser.Scene,
+    initialize: function() {
+        Phaser.Scene.call(this, { "key": "Cena-01" });
+    },
+    init: function() {},
+    preload: function() {
+        this.load.image("plane", "plano.png"); //aqui você coloca a imagem desejada
+    },
+    create: function() {
+        this.plane = this.add.image(640, 360, "plane");
+    },
+    update: function() {}
+});
+```
+
+No arquivo **cena-02.js**, vai esse código:
+
+```
+var Cena-02 = new Phaser.Class({
+    Extends: Phaser.Scene,
+    initialize: function() {
+        Phaser.Scene.call(this, { "key": "Cena-02" }); //presta a atenção nessa CHAVE pois ela será utilizada no chaveamento de cenas
+    },
+    init: function() {},
+    preload: function() {},
+    create: function() {
+        var text = this.add.text(
+            640, 
+            360, 
+            "Olá Mundo", 
+            {
+                fontSize: 50,
+                color: "#000000",
+                fontStyle: "bold"
+            }
+        ).setOrigin(0.5);
+    },
+    update: function() {}
+});
+```
+
+No arquivo ```index.html```, vamos modificar o ```phaserConfig``` conforme a seguir:
+
+```
+const phaserConfig = {
+    type: Phaser.AUTO,
+    parent: "game",
+    width: 1280,
+    height: 720,
+    backgroundColor: "#5DACD8",
+    scene: [ Cena-01, Cena-02 ]
+};
+```
+
+Observe que as 2 cenas foram adicinadas num array [vetor]. A ordem é importante porque a primeira cena do array será a cena padrão. Você sempre pode navegar entre eles, mas é importante saber qual deles será exibido primeiro.
+
+Agora que temos várias cenas, cada uma com seus próprios eventos de ciclo de vida, provavelmente desejaremos alternar entre elas e até mesmo passar dados entre elas. Antes de nos preocuparmos com o lado dos dados, vamos nos concentrar apenas na mudança.
+
+A ideia é a seguinte:
+
+1) Mostre a primeira cena do SceneOne.
+2) Espere um certo tempo.
+3) Navegue até a segunda cena do Cena-02.
+4) Idealmente, você provavelmente desejaria alternar cenas com base em alguma interação de objeto do jogo, mas para fins de demonstração, um cronômetro será suficiente.
+
+Na função ```create``` do arquivo **Cena-01.js**, altere-o para ficar assim:
+
+```
+create: function() {
+    this.plane = this.add.image(640, 360, "plane");
+    this.time.addEvent({
+        delay: 3000,
+        loop: false,
+        callback: () => {
+            this.scene.start("Cena-02");
+        }
+    })
+},
+```
+
+Observe o uso do cronômetro. Após três segundos, a próxima cena nomeada começará. Quando a próxima cena começa, ela passa por cada um dos eventos do ciclo de vida necessários para configurar e renderizar a cena.
+
+Se não fizéssemos mais nada, nosso código funcionaria. No entanto, pode fazer sentido passar dados de uma cena para outra. Um exemplo é com informações de pontuação. Talvez a primeira cena seja a cena do jogo e você esteja acumulando pontuação. Então talvez a segunda cena seja uma cena de fim de jogo que deve exibir a pontuação. 
+
+Bem, você precisará transferir a pontuação para a nova cena, então este exemplo pode ser útil.
+
+Dentro da função ```create``` do arquivo **Cena-01.js**, altere ligeiramente o ```scene.start``` para ficar assim:
+
+```
+this.scene.start("Cena-02", { 
+    "message": "Game Over" 
+});
+```
+
+Observe que desta vez estamos passando um objeto. A chave e os valores neste objeto podem ser o que você quiser.
+
+Como estamos passando valores, precisamos de uma forma de recebê-los na próxima cena. Na função ```init``` do arquivo **Cena-02.js**, altere-o para ficar assim:
+
+```
+init: function(data) {
+    this.message = data.message;
+},
+```
+
+Observe que esta função está aceitando um parâmetro. Esse parâmetro são os dados da cena anterior. Precisamos configurá-lo para uma variável de cena com escopo local para que possa ser acessado durante todos os eventos do ciclo de vida de nossa cena.
+
+Agora vamos modificar a função ```create``` no mesmo arquivo:
+
+```
+create: function() {
+    var text = this.add.text(
+        640, 
+        360, 
+        this.message, 
+        {
+            fontSize: 50,
+            color: "#000000",
+            fontStyle: "bold"
+        }
+    ).setOrigin(0.5);
+},
+```
+
+Observe que em vez de renderizar “Olá Mundo”, agora estamos renderizando a mensagem que foi passada na cena anterior.
