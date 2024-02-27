@@ -77,7 +77,7 @@ new Phaser.Game({
   }
 })
 
-export default class Scene1 extends Phaser.Scene {
+export default class Cena-01 extends Phaser.Scene {
   constructor() {
     super('BemVindo')
   }
@@ -94,9 +94,9 @@ export default class Scene1 extends Phaser.Scene {
 
 Explicando as linhas anteriores:
 
-Temos uma classe chamada `Scene1`, que estende a classe `Phaser.Scene`. Esta classe representa uma cena no jogo Phaser. Então note:
+Temos uma classe chamada `Cena-01`, que estende a classe `Phaser.Scene`. Esta classe representa uma cena no jogo Phaser. Então note:
 
-1. `export default class Scene1 extends Phaser.Scene {`: aqui, estamos exportando (tornando disponível para outros arquivos) uma classe chamada `Scene1` como o padrão da exportação. Essa classe estende `Phaser.Scene`, o que significa que `Scene1` é uma subclasse de `Phaser.Scene`. Isso permite que `Scene1` herde todas as funcionalidades e métodos de `Phaser.Scene`.
+1. `export default class Scene1 extends Phaser.Scene {`: aqui, estamos exportando (tornando disponível para outros arquivos) uma classe chamada `Cena-01` como o padrão da exportação. Essa classe estende `Phaser.Scene`, o que significa que `Cena-01` é uma subclasse de `Phaser.Scene`. Isso permite que `Cena-01` herde todas as funcionalidades e métodos de `Phaser.Scene`.
 
 2. `constructor() { super('BemVindo') }`: O construtor da classe `Scene1` é definido aqui. Quando uma nova instância de `Scene1` é criada, o construtor da classe `Phaser.Scene` é chamado primeiro com o parâmetro `'BemVindo'`. Isso define o nome da cena como `'BemVindo'`. O construtor também chama o construtor da classe pai usando `super()`, garantindo que todas as inicializações necessárias da classe pai sejam feitas.
 
@@ -106,7 +106,7 @@ Temos uma classe chamada `Scene1`, que estende a classe `Phaser.Scene`. Esta cla
 
 5. `setTimeout(() => { this.scene.start('game') }, 2000)`: dentro do método `create()`, um temporizador é configurado usando `setTimeout`. Isso faz com que uma função seja executada após um atraso de 2000 milissegundos (o correto é usar milisegundos). Dentro dessa função, `this.scene.start('game')` é chamado. Isso inicia a cena chamada `'game'`. Portanto, após 2 segundos da inicialização da cena `'BemVindo'`, a cena `'game'` será iniciada.
 
-Em resumo, essa classe `Scene1` define uma cena no jogo Phaser chamada `'BemVindo'`, onde um texto `'Carregando...'` é exibido e, após 2 segundos, a cena `'game'` é iniciada.
+Em resumo, essa classe `Cena-01` define uma cena no jogo Phaser chamada `'BemVindo'`, onde um texto `'Carregando...'` é exibido e, após 2 segundos, a cena `'game'` é iniciada.
 
 ### O que é um método?
 
