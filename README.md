@@ -445,3 +445,15 @@ Ao criar um mapa de ladrilhos (tiles) para um jogo, é importante considerar vá
 Ao considerar esses conceitos durante a edição do mapa de ladrilhos, é possível criar um ambiente de jogo visualmente atraente, funcional e envolvente para os jogadores.
 
 Um exemplo pode ser baixado [AQUI](https://drive.google.com/file/d/1cbRfl5-EBkD18Sf_7WHttUZ965aCNqJc/view?usp=drive_link)
+
+## Exercício
+
+### Descrição:
+
+Você deve criar um jogo simples usando Phaser que consiste em duas cenas. Na primeira cena, o jogador deve inserir seu nome em um campo de texto e clicar em um botão para iniciar o jogo. Na segunda cena, o nome do jogador inserido na cena anterior deve ser exibido junto com uma mensagem de boas-vindas.
+
+### Requisitos:
+
+* Crie duas cenas usando Phaser.
+* Transmita o nome do jogador da primeira cena para a segunda cena.
+* Exiba o nome do jogador junto com uma mensagem de boas-vindas na segunda cena.
