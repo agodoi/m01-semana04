@@ -56,7 +56,7 @@ Explicação das linhas:
 Resumindo, esse código define um jogo Phaser com uma largura de 450 pixels e altura de 600 pixels, mas sem carregar nenhum recurso ou criar nenhum elemento do jogo inicialmente. As funções `preload` e `create` estão vazias, então nada é carregado ou criado durante a inicialização do jogo.
 
 
-Um jogo geralmente tem várias cenas. Você pode criar cada cena em seu arquivo separado e passá-las para a propriedade scene, mas desta vez como um array.
+Um jogo geralmente tem várias cenas. Você pode criar cada cena em seu arquivo ```*.js``` separado e passá-las para a propriedade scene, mas desta vez como um array.
 
 Neste caso as cenas são criadas estendendo o objeto Phaser.Scene.
 
