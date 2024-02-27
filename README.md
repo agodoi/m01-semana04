@@ -58,7 +58,7 @@ Resumindo, esse código define um jogo Phaser com uma largura de 450 pixels e al
 
 Um jogo geralmente tem várias cenas. Você pode criar cada cena em seu arquivo ```*.js``` separado e passá-las para a propriedade scene, mas desta vez como um array.
 
-Neste caso as cenas são criadas estendendo o objeto ```Phaser.Scene```.
+Neste caso as cenas são criadas estendendo o objeto ```Phaser.Scene```, como abaixo.
 
 Por exemplo, você pode criar uma cena de boas-vindas num arquivo ```BemVindo.js```. Exemplo:
 
