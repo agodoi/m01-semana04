@@ -458,7 +458,11 @@ Você deve criar um jogo simples usando Phaser que consiste em duas cenas. Na pr
 * Transmita o nome do jogador da primeira cena para a segunda cena.
 * Exiba o nome do jogador junto com uma mensagem de boas-vindas na segunda cena.
 
+
+Criação	Resultado
+
 ```
+<font color=\"white\">
 // Importando o Phaser
 import Phaser from 'phaser';
 
@@ -513,4 +517,5 @@ class Scene2 extends Phaser.Scene {
     this.add.text(100, 100, `Bem-vindo(a), ${this.playerName}!`, { fill: '#ffffff' });
   }
 }
+</font>
 ```
