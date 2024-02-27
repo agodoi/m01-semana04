@@ -127,7 +127,7 @@ Temos uma classe chamada `Cena-01`, que estende a classe `Phaser.Scene`. Esta cl
 
 1. `export default class Scene1 extends Phaser.Scene {`: aqui, estamos exportando (tornando disponível para outros arquivos) uma classe chamada `Cena-01` como o padrão da exportação. Essa classe estende `Phaser.Scene`, o que significa que `Cena-01` é uma subclasse de `Phaser.Scene`. Isso permite que `Cena-01` herde todas as funcionalidades e métodos de `Phaser.Scene`.
 
-2. `constructor() { super('BemVindo') }`: O construtor da classe `Scene1` é definido aqui. Quando uma nova instância de `Scene1` é criada, o construtor da classe `Phaser.Scene` é chamado primeiro com o parâmetro `'BemVindo'`. Isso define o nome da cena como `'BemVindo'`. O construtor também chama o construtor da classe pai usando `super()`, garantindo que todas as inicializações necessárias da classe pai sejam feitas.
+2. `constructor() { super('BemVindo') }`: O construtor da classe `Cena-01` é definido aqui. Quando uma nova instância de `Cena-01` é criada, o construtor da classe `Phaser.Scene` é chamado primeiro com o parâmetro `'BemVindo'`. Isso define o nome da cena como `'BemVindo'`. O construtor também chama o construtor da classe pai usando `super()`, garantindo que todas as inicializações necessárias da classe pai sejam feitas.
 
 3. `create() { ... }`: é um método específico do Phaser chamado `create()`. Ele é chamado automaticamente quando a cena é iniciada e é onde você configura os elementos da cena, como sprites, textos, etc.
 
@@ -313,7 +313,7 @@ Agora que temos várias cenas, cada uma com seus próprios eventos de ciclo de v
 
 A ideia é a seguinte:
 
-1) Mostre a primeira cena do SceneOne.
+1) Mostre a primeira cena do Cena-01.
 2) Espere um certo tempo.
 3) Navegue até a segunda cena do Cena-02.
 4) Idealmente, você provavelmente desejaria alternar cenas com base em alguma interação de objeto do jogo, mas para fins de demonstração, um cronômetro será suficiente.
