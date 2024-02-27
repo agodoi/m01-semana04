@@ -137,7 +137,7 @@ Temos uma classe chamada `Cena-01`, que estende a classe `Phaser.Scene`. Esta cl
 
 Em resumo, essa classe `Cena-01` define uma cena no jogo Phaser chamada `'BemVindo'`, onde um texto `'Carregando...'` é exibido e, após 2 segundos, a cena `'game'` é iniciada.
 
-### O que é um método?
+### 2.2) Entenda o que é um método
 
 No código fornecido, um método é uma **função** que está definida **dentro de uma classe** e pode ser **chamada nos objetos dessa classe**. No contexto do código apresentado, temos o **método `create()` dentro da classe `Scene1`**. Este método é chamado automaticamente quando a cena é iniciada no jogo Phaser.
 
