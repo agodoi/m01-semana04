@@ -56,7 +56,7 @@ Explicação das linhas:
 Resumindo, esse código define um jogo Phaser com uma largura de 450 pixels e altura de 600 pixels, mas sem carregar nenhum recurso ou criar nenhum elemento do jogo inicialmente. As funções `preload` e `create` estão vazias, então nada é carregado ou criado durante a inicialização do jogo.
 
 
-## 2.1) Entenda o que é uma classe em JavaScript
+### 2.1) Entenda o que é uma classe em JavaScript
 
 Em JavaScript, uma classe é uma estrutura que define um tipo de objeto, especificando os membros (propriedades e métodos) que os objetos desse tipo terão. Classes em JavaScript foram introduzidas na especificação ECMAScript 2015 (também conhecida como ES6) e são uma forma de implementar o paradigma de programação orientada a objetos (OOP) na linguagem.
 
