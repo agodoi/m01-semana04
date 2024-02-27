@@ -56,6 +56,35 @@ Explicação das linhas:
 Resumindo, esse código define um jogo Phaser com uma largura de 450 pixels e altura de 600 pixels, mas sem carregar nenhum recurso ou criar nenhum elemento do jogo inicialmente. As funções `preload` e `create` estão vazias, então nada é carregado ou criado durante a inicialização do jogo.
 
 
+## 2.1) Entenda o que é uma classe em JavaScript
+
+Em JavaScript, uma classe é uma estrutura que define um tipo de objeto, especificando os membros (propriedades e métodos) que os objetos desse tipo terão. Classes em JavaScript foram introduzidas na especificação ECMAScript 2015 (também conhecida como ES6) e são uma forma de implementar o paradigma de programação orientada a objetos (OOP) na linguagem.
+
+Aqui está um exemplo básico de como definir uma classe em JavaScript:
+
+```
+class Pessoa {
+  constructor(nome, idade) {
+    this.nome = nome;
+    this.idade = idade;
+  }
+
+  saudacao() {
+    console.log(`Olá, meu nome é ${this.nome} e eu tenho ${this.idade} anos.`);
+  }
+}
+
+// Exemplo de uso da classe Pessoa
+const pessoa1 = new Pessoa('Alice', 30);
+pessoa1.saudacao(); // Saída: Olá, meu nome é Alice e eu tenho 30 anos.
+```
+
+Neste exemplo, `Pessoa` é uma classe que tem dois membros: `nome` e `idade`, definidos no construtor, e um método chamado `saudacao`. Podemos criar objetos (`pessoa1`) a partir dessa classe usando a palavra-chave `new` e acessar seus membros e métodos.
+
+Classes em JavaScript oferecem uma sintaxe mais clara e familiar para a criação de tipos de objetos e herança de protótipos em comparação com as abordagens anteriores baseadas em funções construtoras e protótipos. No entanto, é importante notar que, apesar do uso da palavra-chave `class`, JavaScript ainda é uma linguagem orientada a protótipos, e as classes são uma camada de abstração sobre a herança prototípica existente na linguagem.
+
+**Continuando com os conceitos de cenas do Phaser...**
+
 Um jogo geralmente tem várias cenas. Você pode criar cada cena em seu arquivo ```*.js``` separado e passá-las para a propriedade scene, mas desta vez como um array.
 
 Neste caso as cenas são criadas estendendo o objeto ```Phaser.Scene```, como abaixo.
