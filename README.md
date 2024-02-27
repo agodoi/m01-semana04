@@ -461,7 +461,6 @@ Você deve criar um jogo simples usando Phaser que consiste em duas cenas. Na pr
 
 Criação	Resultado
 
-```
 <font color=\"white\">
 // Importando o Phaser
 import Phaser from 'phaser';
@@ -518,4 +517,3 @@ class Scene2 extends Phaser.Scene {
   }
 }
 </font>
-```
