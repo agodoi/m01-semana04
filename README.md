@@ -102,7 +102,7 @@ Temos uma classe chamada `Scene1`, que estende a classe `Phaser.Scene`. Esta cla
 
 3. `create() { ... }`: é um método específico do Phaser chamado `create()`. Ele é chamado automaticamente quando a cena é iniciada e é onde você configura os elementos da cena, como sprites, textos, etc.
 
-4. `this.add.text(20, 20, 'Loading..')`: dentro do método `create()`, um texto é adicionado à cena na posição (20, 20) com o conteúdo `'Carregando...'`. Isso cria um texto na tela que diz "Carregando..." quando a cena é iniciada.
+4. `this.add.text(20, 20, 'Carregando...')`: dentro do método `create()`, um texto é adicionado à cena na posição (20, 20) com o conteúdo `'Carregando...'`. Isso cria um texto na tela que diz "Carregando..." quando a cena é iniciada.
 
 5. `setTimeout(() => { this.scene.start('game') }, 2000)`: dentro do método `create()`, um temporizador é configurado usando `setTimeout`. Isso faz com que uma função seja executada após um atraso de 2000 milissegundos (o correto é usar milisegundos). Dentro dessa função, `this.scene.start('game')` é chamado. Isso inicia a cena chamada `'game'`. Portanto, após 2 segundos da inicialização da cena `'BemVindo'`, a cena `'game'` será iniciada.
 
@@ -160,15 +160,15 @@ Cada cena que você tem no jogo representa uma lousa em branco ou um novo ponto 
 
 Neste tutorial, veremos como criar múltiplas cenas, alternar entre elas e passar dados entre elas, usando Phaser 3.x e JavaScript simples.
 
-## 3) Outro exemplo Múltiplas Cenas usando HTML
+## 3) Outro exemplo de Múltiplas Cenas usando HTML
 
 ```
 <!DOCTYPE html>
 <html>
     <head>
         <script src="//cdn.jsdelivr.net/npm/phaser@3.24.1/dist/phaser.min.js"></script>
-        <script src="scene-one.js"></script>
-        <script src="scene-two.js"></script>
+        <script src="cena-01.js"></script>
+        <script src="cena-02.js"></script>
     </head>
     <body>
         <div id="game"></div>
