@@ -145,238 +145,219 @@ Dentro do método `create()`, estão sendo realizadas várias operações, como 
 
 Em JavaScript, métodos são essenciais para encapsular a lógica relacionada a um objeto específico e promover a reutilização do código. Eles permitem que você defina o comportamento dos objetos em termos de como eles respondem a determinadas mensagens ou invocações. No contexto de uma classe em JavaScript, os métodos são apenas funções que estão definidas como propriedades da classe.
 
-Continuando com o código anterior, além do jogo ter uma tela de saudação, o jogo ficaria numa outra cena, em um outro arquivo ```jogo.js```. Exemplo:
-
-```
-export default class Scene2 extends Phaser.Scene {
-  constructor() {
-    super('game')
-  }
-
-  create() {
-    this.add.text(20, 20, 'Playing game!')
-  }
-}
-```
-
-Observe que temos o método ``create()`` aqui. E também podemos ter ```preload()``` e ```update()``` como vimos anteriormente.
-
-Mas agora, os importamos e os passamos para a propriedade ```scene``` em nosso arquivo principal do jogo:
-
-```
-import Phaser from 'phaser'
-import BemVindo from './BemVindo'
-import Game from './Game'
-
-const config = {
-  width: 800,
-  height: 600,
-  backgroundColor: 0x000000,
-  scene: [BemVindo, Game]
-}
-
-const game = new Phaser.Game(config)
-```
-
-O que acontece agora é que temos a primeira cena listada (BemVindo) iniciando e chamamos ```this.scene.start('game')``` para passar para a cena do jogo após 2 segundos.
-
-**Portanto, agora você já sabe como fazer múltiplas classes (cenas)**.
-
+## Criando Multi Cenas
 
 Ao criar um jogo, provavelmente você terá mais de uma tela. Por exemplo, você pode ter uma tela de menu inicial, uma tela principal de jogo e uma tela de fim de jogo. Essas telas podem ser pensadas como cenas de um jogo, da mesma forma que você pode pensar nas cenas de um filme.
 
 Cada cena que você tem no jogo representa uma lousa em branco ou um novo ponto de partida para aquela subseção específica de conteúdo.
 
-Neste tutorial, veremos como criar múltiplas cenas, alternar entre elas e passar dados entre elas, usando Phaser 3.x e JavaScript simples.
+Neste tutorial, veremos como criar múltiplas cenas, alternar entre elas e passar dados entre elas, usando Phaser e JavaScript simples.
 
-## 3) Outro exemplo de Múltiplas Cenas usando HTML
+A seguir, tem-se um exemplo HTML que integra 2 cenas, onde passaremos uma informação de uma cena para a outra.
+
+Então, nesse exemplo, temos a seguinte estrutura de arquivos:
+
+`index.html` que integra 3 arquivos JS e cria uma caixa de entrada com um botão de confirmação
+`cena01.js` que é a tela de fundo
+`cena02.js` que é a tela que pega o nome digitado ao clicar com mouse sobre o botão
+`game.js` que possui o arquivo **config** que constroi o Phaser
 
 ```
-<!DOCTYPE html>
+<!doctype html>
+<html lang="pt">
 <html>
     <head>
-        <script src="//cdn.jsdelivr.net/npm/phaser@3.24.1/dist/phaser.min.js"></script>
-        <script src="cena-01.js"></script>
-        <script src="cena-02.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!--adicione essa linha para aplicações web responsivas -->
+        <meta charset="UTF-8" /> <!--adicione essa linha para acentos aparecerem corretamente -->
+        <title>Mundado de Cenas</title>
+        <style>
+            body{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            #inputOverlay {
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                top: 250px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: none;
+            }
+
+            input, button {
+                padding: 1px;
+                font-size: 20px;
+            }
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.js"></script>
     </head>
     <body>
-        <div id="game"></div>
-        <script>
+        
+        <div id="inputOverlay">
+            <div class="alinhartext">
+                <input type="text" id="nameInput" placeholder="Digite seu nome">
+            </div>
+            <div class="alinharbotao">
+                <button id="startButton">Confirma</button>
+            </div>
+        </div>
 
-            const phaserConfig = {
-                type: Phaser.AUTO,
-                parent: "game",
-                width: 1280,
-                height: 720,
-                backgroundColor: "#5DACD8",
-                scene: [ ]
-            };
-
-            const game = new Phaser.Game(phaserConfig);
-
-        </script>
+        <script src="Cena02.js"></script>
+        <script src="Cena01.js"></script>
+        <script src="game.js"></script>
     </body>
 </html>
 ```
 
 **Explicando...**
 
-Este é um exemplo básico de como configurar um jogo usando a biblioteca Phaser dentro de uma página HTML. Detalhes:
 
-1. `<!DOCTYPE html>`: declaração do tipo de documento para especificar que o documento é um HTML5.
-
-2. `<html>...</html>`: elemento raiz que envolve todo o conteúdo HTML.
-
-3. `<head>...</head>`: contém metadados e referências a recursos utilizados pela página.
-
-4. `<script src="//cdn.jsdelivr.net/npm/phaser@3.24.1/dist/phaser.min.js"></script>`: importa a biblioteca Phaser. Neste caso, está sendo utilizado o CDN (Content Delivery Network) fornecido pelo jsDelivr para incluir a versão 3.24.1 da biblioteca Phaser.
-
-5. `<script src="cena-01.js"></script>`: importa um arquivo JavaScript chamado "cena-01.js". Presumivelmente, este arquivo contém a definição de uma cena para o jogo.
-
-6. `<script src="cena-02.js"></script>`: importa outro arquivo JavaScript chamado "cena-02.js". Da mesma forma que o anterior, este arquivo provavelmente contém a definição de outra cena para o jogo.
-
-7. `<body>...</body>`: contém todo o conteúdo visível da página HTML.
-
-8. `<div id="game"></div>`: define uma `div` com o id "game". É dentro desta `div` que o jogo Phaser será renderizado. Uma "div" é um elemento HTML que serve como um contêiner genérico para outros elementos HTML. Ela é frequentemente usada para agrupar e organizar conteúdo dentro de uma página da web. A palavra "div" é uma abreviação de "division" (divisão), e é usada para dividir o conteúdo da página em seções distintas.
-
-9. `<script>...</script>`: contém o código JavaScript que configura e inicia o jogo Phaser.
-
-    - `const phaserConfig = { ... };`: define um objeto de configuração para o jogo Phaser. As propriedades desse objeto incluem o tipo de renderização (`type`), o elemento pai onde o jogo será renderizado (`parent`), as dimensões do jogo (`width` e `height`), a cor de fundo do jogo (`backgroundColor`) e a lista de cenas (`scene`). Por enquanto, a lista de cenas está vazia.
-
-    - `const game = new Phaser.Game(phaserConfig);`: cria uma nova instância do jogo Phaser com as configurações especificadas no objeto `phaserConfig`. Esta instância é armazenada na variável `game`.
-
-De forma geral, este código HTML configura uma página web para carregar e executar um jogo criado com Phaser, especificando o tamanho do jogo, a cor de fundo e os scripts que contêm as definições das cenas do jogo.
-
-### 3.1) Criando os Arquivos JS
-
-No arquivo **cena-01.js**, vai esse código:
-
- ```
-var Cena-01 = new Phaser.Class({
-    Extends: Phaser.Scene,
-    initialize: function() {
-        Phaser.Scene.call(this, { "key": "Cena-01" });
-    },
-    init: function() {},
-    preload: function() {
-        this.load.image("plane", "plano.png"); //aqui você coloca a imagem desejada
-    },
-    create: function() {
-        this.plane = this.add.image(640, 360, "plane");
-    },
-    update: function() {}
-});
-```
+### 3.1) 
 
 No arquivo **cena-02.js**, vai esse código:
 
 ```
-var Cena-02 = new Phaser.Class({
-    Extends: Phaser.Scene,
-    initialize: function() {
-        Phaser.Scene.call(this, { "key": "Cena-02" }); //presta a atenção nessa CHAVE pois ela será utilizada no chaveamento de cenas
-    },
-    init: function() {},
-    preload: function() {},
-    create: function() {
-        var text = this.add.text(
-            640, 
-            360, 
-            "Olá Mundo", 
-            {
-                fontSize: 50,
-                color: "#000000",
-                fontStyle: "bold"
-            }
-        ).setOrigin(0.5);
-    },
-    update: function() {}
-});
+class Cena02 extends Phaser.Scene {
+    constructor() {
+        super('Cena02');
+    }
+
+    create() {
+        // Serve para exibir o overlay de entrada
+        document.getElementById('inputOverlay').style.display = 'block';
+
+        // Configura o evento de clique no botão
+        document.getElementById('startButton').addEventListener('click', () => {
+            const playerName = document.getElementById('nameInput').value;
+            this.scene.start('Cena01', { playerName: playerName });
+            // Oculta o overlay após iniciar
+            document.getElementById('inputOverlay').style.display = 'none';
+        });
+    }
+}
 ```
 
-No arquivo ```index.html```, vamos modificar o ```phaserConfig``` conforme a seguir:
+**Explicando...**
+
+
+- O Cena02 é uma classe que estende a classe `Phaser.Scene`, indicando que se trata de uma cena dentro do jogo Phaser.
+- O construtor (`constructor`) da classe:
+    - `super('Cena02');`: chama o construtor da classe pai (`Phaser.Scene`) e define o nome da cena como "Cena02".
+
+- O Método create() é chamado automaticamente pelo Phaser quando a cena é criada.
+    - **Exibindo o overlay de entrada:**
+        - `document.getElementById('inputOverlay').style.display = 'block';`:
+            - Utiliza o método `getElementById` do documento (`document`) para obter o elemento HTML com o identificador "inputOverlay".
+            - Acessa a propriedade `style` do elemento para manipular seu estilo CSS.
+            - Define o valor da propriedade `display` como "block", tornando o elemento visível.
+    - **Configurando o evento de clique no botão:**
+        - `document.getElementById('startButton').addEventListener('click', () => { ... });`:
+            - Similarmente, obtém o elemento "startButton" e configura um evento de escuta do tipo "click" usando o método `addEventListener`.
+            - A função de callback associada ao evento é definida como uma arrow function (função de seta).
+        - **Dentro da função de callback:**
+            - `const playerName = document.getElementById('nameInput').value;`:
+                - Obtém o elemento "nameInput" e acessa sua propriedade `value` para capturar o texto digitado pelo jogador.
+                - Armazena o nome do jogador em uma constante `playerName`.
+            - `this.scene.start('Cena01', { playerName: playerName });`:
+                - Utiliza o método `start` do objeto `scene` (referenciando a cena atual) para iniciar a cena "Cena01".
+                - Passa um objeto como argumento para a nova cena, contendo a propriedade `playerName` com o valor capturado anteriormente.
+            - `document.getElementById('inputOverlay').style.display = 'none';`:
+                - Após iniciar a cena "Cena01", novamente utiliza `getElementById` para obter o overlay.
+                - Oculta o overlay definindo a propriedade `display` como "none".
+
+**Resumo:**
+
+A classe `Cena02` é responsável por:
+
+1. Exibir o overlay de entrada inicial, que captura um nome que você dará entrada.
+2. Configurar um evento de clique no botão "Iniciar" para:
+    - Capturar o nome do jogador digitado.
+    - Iniciar a cena "Cena01" e passar o nome do jogador como argumento.
+    - Ocultar o overlay após a transição para a próxima cena.
+
+### 3.2) Classe Cena01
+
+No arquivo **cena-01.js**, vai esse código:
 
 ```
-const phaserConfig = {
-    type: Phaser.AUTO,
-    parent: "game",
-    width: 1280,
-    height: 720,
-    backgroundColor: "#5DACD8",
-    scene: [ Cena-01, Cena-02 ]
-};
-```
+class Cena01 extends Phaser.Scene {
+    constructor() {
+        super('Cena01');
+    }
 
-Observe que as 2 cenas foram adicinadas num array [vetor]. A ordem é importante porque a primeira cena do array será a cena padrão. Você sempre pode navegar entre eles, mas é importante saber qual deles será exibido primeiro.
+    init(data) {
+        this.playerName = data.playerName;
+    }
 
-Agora que temos várias cenas, cada uma com seus próprios eventos de ciclo de vida, provavelmente desejaremos alternar entre elas e até mesmo passar dados entre elas. Antes de nos preocuparmos com o lado dos dados, vamos nos concentrar apenas na mudança.
+    create() {
+        this.text = this.add.text(-100, 700, `Olá ${this.playerName}, bão?`, { fill: '#333' });
+    }
 
-A ideia é a seguinte:
-
-1) Mostre a primeira cena do Cena-01.
-2) Espere um certo tempo.
-3) Navegue até a segunda cena do Cena-02.
-4) Idealmente, você provavelmente desejaria alternar cenas com base em alguma interação de objeto do jogo, mas para fins de demonstração, um cronômetro será suficiente.
-
-Na função ```create``` do arquivo **Cena-01.js**, altere-o para ficar assim:
-
-```
-create: function() {
-    this.plane = this.add.image(640, 360, "plane");
-    this.time.addEvent({
-        delay: 3000,
-        loop: false,
-        callback: () => {
-            this.scene.start("Cena-02");
+    update(){
+        if(this.text.x < 400){
+            this.text.x += 10;
         }
-    })
-},
-```
-
-Observe o uso do cronômetro. Após três segundos, a próxima cena nomeada começará. Quando a próxima cena começa, ela passa por cada um dos eventos do ciclo de vida necessários para configurar e renderizar a cena.
-
-Se não fizéssemos mais nada, nosso código funcionaria. No entanto, pode fazer sentido passar dados de uma cena para outra. Um exemplo é com informações de pontuação. Talvez a primeira cena seja a cena do jogo e você esteja acumulando pontuação. Então talvez a segunda cena seja uma cena de fim de jogo que deve exibir a pontuação. 
-
-Bem, você precisará transferir a pontuação para a nova cena, então este exemplo pode ser útil.
-
-Dentro da função ```create``` do arquivo **Cena-01.js**, altere ligeiramente o ```scene.start``` para ficar assim:
-
-```
-this.scene.start("Cena-02", { 
-    "message": "Game Over" 
-});
-```
-
-Observe que desta vez estamos passando um objeto. A chave e os valores neste objeto podem ser o que você quiser.
-
-Como estamos passando valores, precisamos de uma forma de recebê-los na próxima cena. Na função ```init``` do arquivo **Cena-02.js**, altere-o para ficar assim:
-
-```
-init: function(data) {
-    this.message = data.message;
-},
-```
-
-Observe que esta função está aceitando um parâmetro. Esse parâmetro são os dados da cena anterior. Precisamos configurá-lo para uma variável de cena com escopo local para que possa ser acessado durante todos os eventos do ciclo de vida de nossa cena.
-
-Agora vamos modificar a função ```create``` no mesmo arquivo:
-
-```
-create: function() {
-    var text = this.add.text(
-        640, 
-        360, 
-        this.message, 
-        {
-            fontSize: 50,
-            color: "#000000",
-            fontStyle: "bold"
+        if(this.text.y>300){
+            this.text.y -=10;
         }
-    ).setOrigin(0.5);
-},
+    }
+}
 ```
+### Explicando...
 
-Observe que em vez de renderizar “Olá Mundo”, agora estamos renderizando a mensagem que foi passada na cena anterior.
+**Classe Cena01**
+
+- Classe Cena01: esta classe estende a classe `Phaser.Scene`, indicando que se trata de uma cena dentro do jogo Phaser.
+- O construtor (`constructor`) da classe:
+    - `super('Cena01');`: chama o construtor da classe pai (`Phaser.Scene`) e define o nome da cena como "Cena01".
+
+**Método init(data):**
+
+- Este método é chamado automaticamente pelo Phaser antes do método `create`.
+- Ele recebe um objeto `data` como parâmetro, que possivelmente contém informações passadas de outra cena.
+    - `this.playerName = data.playerName;`:
+        - Acessa a propriedade `playerName` do objeto `data` e a armazena na propriedade interna `playerName` da classe.
+
+**Método create():**
+
+- Este método é chamado automaticamente pelo Phaser quando a cena é criada.
+    - `this.text = this.add.text(-100, 700, `Olá ${this.playerName}, bão?`, { fill: '#333' });`:
+        - Utiliza o método `add.text` da cena para criar um elemento de texto na tela.
+        - Parâmetros do método `add.text`:
+            - `-100`: coordenada X inicial do texto (fora da tela à esquerda).
+            - `700`: coordenada Y inicial do texto (fora da tela na parte inferior).
+            - ``Olá ${this.playerName}, bão?``: define o texto a ser exibido, usando template literal para incorporar o valor de `this.playerName`.
+            - `{ fill: '#333' }`: define um objeto contendo as propriedades de estilo do texto em hexadecimal. As cores variam de #000000 (preto) até #ffffff (branco).
+                - `fill: '#333'`: define a cor de preenchimento do texto como cinza escuro (#333) em hexadecimal.
+        - A variável `this.text` armazena a referência ao elemento de texto criado para possível manipulação posterior.
+
+**Método update():**
+
+- Este método é chamado automaticamente pelo Phaser em cada frame de atualização do jogo.
+    - `if(this.text.x < 400){`:
+        - Verifica se a coordenada X do texto é menor que 400 (fora da tela à direita).
+        - Se for verdade, o texto ainda não entrou na tela completamente.
+    - `this.text.x += 10;`:
+        - Incrementa a coordenada X do texto em 10 pixels, movendo-o da esquerda para a direita.
+    - `if(this.text.y>300){`:
+        - Verifica se a coordenada Y do texto é maior que 300 (fora da tela na parte superior).
+        - Se for verdade, o texto ainda não atingiu sua posição final.
+    - `this.text.y -=10;`:
+        - Decrementa a coordenada Y do texto em 10 pixels, movendo-o de cima para baixo.
+
+**Resumo:**
+
+A classe `Cena01` é responsável por:
+
+1. Armazenar o nome do jogador recebido na inicialização da cena.
+2. Criar um elemento de texto na tela exibindo uma saudação personalizada ao jogador.
+3. No loop de atualização do jogo:
+    - Mover o texto horizontalmente da esquerda para a direita até a coordenada X de 400.
+    - Mover o texto verticalmente de cima para a diagonal até a coordenada Y de 300.
+
 
 ## 4) Casos de Testes
 
