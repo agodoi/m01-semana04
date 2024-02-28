@@ -332,9 +332,10 @@ class Cena01 extends Phaser.Scene {
             - `const playerName = document.getElementById('nameInput').value;`:
                 - Obtém o elemento "nameInput" e acessa sua propriedade `value` para capturar o texto digitado pelo jogador.
                 - Armazena o nome do jogador em uma constante `playerName`.
-            - `this.scene.start('Cena01', { playerName: playerName });`:
+            - `this.scene.start('Cena02', { playerName: playerName });`:
+                - **É AQUI QUE ESTÁ O PULO DO GATO DA MULTI CENAS**   
                 - Utiliza o método `start` do objeto `scene` (referenciando a cena atual) para iniciar a cena "Cena02".
-                - Passa um objeto como argumento para a nova cena, contendo a propriedade `playerName` com o valor capturado anteriormente.
+                - Passa um objeto como argumento para a nova cena [cena02], contendo a propriedade `playerName` com o valor capturado anteriormente.
             - `document.getElementById('inputOverlay').style.display = 'none';`:
                 - Após iniciar a cena "Cena02", novamente utiliza `getElementById` para obter o overlay.
                 - Oculta o overlay definindo a propriedade `display` como "none".
@@ -388,8 +389,9 @@ class Cena02 extends Phaser.Scene {
 **Método init(data):**
 
 - Este método é chamado automaticamente pelo Phaser antes do método `create`.
-- Ele recebe um objeto `data` como parâmetro, que possivelmente contém informações passadas de outra cena.
+- Ele recebe um objeto `data` como parâmetro que contém informações passadas da cena01
     - `this.playerName = data.playerName;`:
+        - **AQUI ESTÁ OUTRO PULO DO GATO DA MULTI CENAS** 
         - Acessa a propriedade `playerName` do objeto `data` e a armazena na propriedade interna `playerName` da classe.
 
 **Método create():**
