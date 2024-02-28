@@ -157,10 +157,13 @@ A seguir, tem-se um exemplo HTML que integra 2 cenas, onde passaremos uma inform
 
 Então, nesse exemplo, temos a seguinte estrutura de arquivos:
 
-`index.html` que integra 3 arquivos JS e cria uma caixa de entrada com um botão de confirmação
-`cena01.js` que é a tela de fundo
-`cena02.js` que é a tela que pega o nome digitado ao clicar com mouse sobre o botão
-`game.js` que possui o arquivo **config** que constroi o Phaser
+* `index.html` que integra 3 arquivos JS e cria uma caixa de entrada com um botão de confirmação
+
+* `cena01.js` que é a tela de fundo
+
+* `cena02.js` que é a tela que pega o nome digitado ao clicar com mouse sobre o botão
+
+* `game.js` que possui o arquivo **config** que constroi o Phaser
 
 ```
 <!doctype html>
