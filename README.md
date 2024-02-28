@@ -165,6 +165,8 @@ Então, nesse exemplo, temos a seguinte estrutura de arquivos:
 
 * `game.js` que possui o arquivo **config** que constroi o Phaser
 
+Começando com o arquivo `index.html` abaixo:
+
 ```
 <!doctype html>
 <html lang="pt">
@@ -217,6 +219,69 @@ Então, nesse exemplo, temos a seguinte estrutura de arquivos:
 
 **Explicando...**
 
+**Declaração do tipo de Documento:**
+
+- `<!DOCTYPE html>`: declara o tipo de documento como HTML.
+
+**Elemento `html`:**
+
+- Define a estrutura básica da página web.
+
+**Cabeçalho (`head`):**
+
+- Contém informações metadados sobre a página:
+    - `meta name="viewport" content="width=device-width, initial-scale=1"`: define uma meta tag para dispositivos móveis, garantindo que a página tenha a largura do dispositivo e a escala inicial seja 1 (zoom 100%). Isso é uma recomendação do Visual Code, serve para eliminar esse erro que você deve ter aí quando vai codar HTML.
+    - `meta charset="UTF-8"`: define o charset da página como UTF-8, permitindo a exibição correta de acentos e caracteres especiais. Também resolve um problema no Visual Code.
+    - `title>Mundando de Cenas</title>`: define o título da página como "Mundando de Cenas".
+
+**Estilos (`style`):**
+
+- Aplica estilos CSS à página:
+    - `body`:
+        - `display: flex`: define o corpo da página como um container flex.
+        - `align-items: center`: alinha elementos filhos verticalmente ao centro.
+        - `justify-content: center`: alinha elementos filhos horizontalmente ao centro.
+    - `#inputOverlay`:
+        - `position: absolute`: posiciona o overlay de entrada de forma absoluta.
+        - `display: flex`: define o overlay como um container flex.
+        - `align-items: center`: alinha elementos filhos do overlay verticalmente ao centro.
+        - `justify-content: center`: alinha elementos filhos do overlay horizontalmente ao centro.
+        - `top: 250px`: posiciona o overlay 250 pixels a partir do topo.
+        - `left: 50%`: posiciona o overlay horizontalmente ao centro (50%).
+        - `transform: translateX(-50%)`: desloca horizontalmente o overlay pela metade de sua largura para centralizá-lo corretamente.
+        - `display: none`: inicialmente oculta o overlay.
+    - `input, button`: estilos aplicados a ambos os elementos:
+        - `padding: 1px`: define o espaçamento interno com 1 pixel.
+        - `font-size: 20px`: define o tamanho da fonte como 20 pixels.
+
+**Bibliotecas Javascript:**
+
+- `<script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.js"></script>`: inclui a biblioteca Phaser para desenvolvimento de jogos 2D.
+
+**Conteúdo da Página (`body`):**
+
+- `div id="inputOverlay"`:
+    - Define a div do overlay de entrada com o identificador "inputOverlay".
+    - Contém duas divs filhas para alinhar o campo de texto e o botão.
+        - `div class="alinhartext"`:
+            - Define a div para alinhar o texto (possível uso para estilos CSS).
+            - `input type="text" id="nameInput" placeholder="Digite seu nome"`:
+                - Cria um campo de texto (`<input type="text">`) com o identificador "nameInput".
+                - `placeholder="Digite seu nome"`: define um texto de placeholder ("Enter your name") que aparece dentro do campo quando está vazio.
+        - `div class="alinharbotao"`:
+            - define a div para alinhar o botão (possível uso para estilos CSS).
+            - `button id="startButton">Confirma</button>`:
+                - Cria um botão (`<button>`) com o texto "Confirma" (Confirm) e o identificador "startButton".
+
+**Scripts do Jogo:**
+
+- `<script src="Cena02.js"></script>`: inclui o script do arquivo "Cena02.js"
+- `<script src="Cena01.js"></script>`: inclui o script do arquivo "Cena01.js"
+- `<script src="game.js"></script>`: inclui o script do arquivo "game.js"
+
+**Finalização (`</html>`):**
+
+- Fecha a tag `html` finalizando a estrutura da página.
 
 ### 3.1) 
 
