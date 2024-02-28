@@ -560,4 +560,4 @@ Você deve criar um jogo simples usando o exemplo acima onde você deve adiciona
 * Exiba os dados da cena 02 e 03 na respectiva cena.
 * Faça um código em que o grupo apresente uma solução.
 
-### Haverá uma votação da melhor solução entre os grupos da sala
+### Haverá uma votação da melhor solução entre os grupos da sala e haverá um prêmio que será pago assim que possível!
