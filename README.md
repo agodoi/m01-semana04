@@ -145,7 +145,7 @@ Dentro do método `create()`, estão sendo realizadas várias operações, como 
 
 Em JavaScript, métodos são essenciais para encapsular a lógica relacionada a um objeto específico e promover a reutilização do código. Eles permitem que você defina o comportamento dos objetos em termos de como eles respondem a determinadas mensagens ou invocações. No contexto de uma classe em JavaScript, os métodos são apenas funções que estão definidas como propriedades da classe.
 
-## Criando Multi Cenas
+## 3) Criando Multi Cenas
 
 Ao criar um jogo, provavelmente você terá mais de uma tela. Por exemplo, você pode ter uma tela de menu inicial, uma tela principal de jogo e uma tela de fim de jogo. Essas telas podem ser pensadas como cenas de um jogo, da mesma forma que você pode pensar nas cenas de um filme.
 
@@ -155,7 +155,7 @@ Neste tutorial, veremos como criar múltiplas cenas, alternar entre elas e passa
 
 A seguir, tem-se um exemplo HTML que integra 2 cenas, onde passaremos uma informação de uma cena para a outra.
 
-## 3) Exemplo de Multi Cenas
+### Exemplo de Multi Cenas
 
 Então, nesse exemplo, temos a seguinte estrutura de arquivos:
 
@@ -556,8 +556,9 @@ Você deve criar um jogo simples usando o exemplo acima onde você deve adiciona
 ### Requisitos:
 
 * Crie a 3ª cena usando Phaser.
-* Transmita um dado segunda cena para a terceira cena.
-* Exiba os dados da cena 02 e 03 na respectiva cena.
-* Faça um código em que o grupo apresente uma solução.
+* A cena 03 não pode ser idêntica à cena 02.
+* Transmita um dado da segunda para a terceira cena.
+* Exiba os dados da cena 02 e 03 na respectiva cena e no seu respectivo tempo, podendo ser apagada.
+* Faça um código em grupo e apresente a solução no final da aula.
 
 ### Haverá uma votação da melhor solução entre os grupos da sala e haverá um prêmio que será pago assim que possível!
