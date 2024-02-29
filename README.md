@@ -106,7 +106,7 @@ new Phaser.Game({
   }
 })
 
-export default class Cena-01 extends Phaser.Scene {
+export default class Cena01 extends Phaser.Scene {
   constructor() {
     super('BemVindo')
   }
@@ -123,11 +123,11 @@ export default class Cena-01 extends Phaser.Scene {
 
 Explicando as linhas anteriores:
 
-Temos uma classe chamada `Cena-01`, que estende a classe `Phaser.Scene`. Esta classe representa uma cena no jogo Phaser. Então note:
+Temos uma classe chamada `Cena01`, que estende a classe `Phaser.Scene`. Esta classe representa uma cena no jogo Phaser. Então note:
 
-1. `export default class Scene1 extends Phaser.Scene {`: aqui, estamos exportando (tornando disponível para outros arquivos) uma classe chamada `Cena-01` como o padrão da exportação. Essa classe estende `Phaser.Scene`, o que significa que `Cena-01` é uma subclasse de `Phaser.Scene`. Isso permite que `Cena-01` herde todas as funcionalidades e métodos de `Phaser.Scene`.
+1. `export default class Scene1 extends Phaser.Scene {`: aqui, estamos exportando (tornando disponível para outros arquivos) uma classe chamada `Cena01` como o padrão da exportação. Essa classe estende `Phaser.Scene`, o que significa que `Cena01` é uma subclasse de `Phaser.Scene`. Isso permite que `Cena01` herde todas as funcionalidades e métodos de `Phaser.Scene`.
 
-2. `constructor() { super('BemVindo') }`: O construtor da classe `Cena-01` é definido aqui. Quando uma nova instância de `Cena-01` é criada, o construtor da classe `Phaser.Scene` é chamado primeiro com o parâmetro `'BemVindo'`. Isso define o nome da cena como `'BemVindo'`. O construtor também chama o construtor da classe pai usando `super()`, garantindo que todas as inicializações necessárias da classe pai sejam feitas.
+2. `constructor() { super('BemVindo') }`: O construtor da classe `Cena01` é definido aqui. Quando uma nova instância de `Cena01` é criada, o construtor da classe `Phaser.Scene` é chamado primeiro com o parâmetro `'BemVindo'`. Isso define o nome da cena como `'BemVindo'`. O construtor também chama o construtor da classe pai usando `super()`, garantindo que todas as inicializações necessárias da classe pai sejam feitas.
 
 3. `create() { ... }`: é um método específico do Phaser chamado `create()`. Ele é chamado automaticamente quando a cena é iniciada e é onde você configura os elementos da cena, como sprites, textos, etc.
 
@@ -135,7 +135,7 @@ Temos uma classe chamada `Cena-01`, que estende a classe `Phaser.Scene`. Esta cl
 
 5. `setTimeout(() => { this.scene.start('game') }, 2000)`: dentro do método `create()`, um temporizador é configurado usando `setTimeout`. Isso faz com que uma função seja executada após um atraso de 2000 milissegundos (o correto é usar milisegundos). Dentro dessa função, `this.scene.start('game')` é chamado. Isso inicia a cena chamada `'game'`. Portanto, após 2 segundos da inicialização da cena `'BemVindo'`, a cena `'game'` será iniciada.
 
-Em resumo, essa classe `Cena-01` define uma cena no jogo Phaser chamada `'BemVindo'`, onde um texto `'Carregando...'` é exibido e, após 2 segundos, a cena `'game'` é iniciada.
+Em resumo, essa classe `Cena01` define uma cena no jogo Phaser chamada `'BemVindo'`, onde um texto `'Carregando...'` é exibido e, após 2 segundos, a cena `'game'` é iniciada.
 
 ### 2.2) Entenda o que é um método
 
@@ -352,7 +352,7 @@ A classe `Cena01` é responsável por:
 
 ### 3.3) Classe Cena02
 
-No arquivo **cena-02.js**, vai esse código:
+No arquivo **cena02.js**, vai esse código:
 
 ```
 class Cena02 extends Phaser.Scene {
@@ -496,7 +496,7 @@ Este caso de teste avalia se o jogo Phaser é configurado corretamente e se é i
 #### Passos:
 1. Verificar se a página HTML foi carregada corretamente no navegador.
 2. Verificar se a biblioteca Phaser foi carregada corretamente a partir do CDN fornecido.
-3. Verificar se os arquivos "cena-01.js" e "cena-02.js" foram carregados corretamente.
+3. Verificar se os arquivos "cena01.js" e "cena02.js" foram carregados corretamente.
 4. Verificar se a `div` com o id "game" está presente na página HTML.
 5. Verificar se o jogo Phaser é iniciado corretamente.
 
